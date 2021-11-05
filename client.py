@@ -1,6 +1,5 @@
 import threading
 import socket
-from ui import *
 import pickle
 
 PORT = 8001
