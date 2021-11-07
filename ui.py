@@ -5,6 +5,7 @@ def menu_to_enter():
     1.Enter to game
     2.Exit
     ''', end='')
+    return int(input('Select:'))
 
 def menu_player(options, name_user, conected, color_user):
     os.system('clear')
