@@ -43,14 +43,13 @@ class User(threading.Thread):
     def run(self):
         while not self.conected:
             os.system('clear')
-            menu_to_enter()
-            option = int(input('Select:'))
+            option = menu_to_enter()
             if option == 1:
                 self.options['option_menu'] = 1
                 name_user = input('Enter your User name:')
                 self.options['name_user'] = name_user
                 self.my_socket.sendall(pickle.dumps(self.options))
-                
+
                 self.data = pickle.loads(self.my_socket.recv(BUFFER_SIZE))
 
 
@@ -66,7 +65,7 @@ class User(threading.Thread):
             elif option == 2:
                 break
         self.my_socket.close()
-            
+
 if __name__ == '__main__':
     my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     my_socket.connect((socket.gethostname(),PORT))
